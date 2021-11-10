@@ -1,9 +1,10 @@
-import React from 'react';
-
-
-function App()  {
+import { ThemeProvider } from "@mui/material/styles";
+import theme from "./Theme";
+function App() {
   return (
-<div></div>
+    <ThemeProvider theme={theme}>
+      {/* app component */}
+    </ThemeProvider>
   );
 }
 
