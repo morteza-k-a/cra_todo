@@ -1,0 +1,7 @@
+.todo{
+    height: calc(100% - 172px);
+    padding: 72px 0.5rem 100px 0.5rem;
+    background-color: #eee;
+    overflow-x: hidden;
+    overflow-y: auto;
+}

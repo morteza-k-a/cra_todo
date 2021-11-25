@@ -1,0 +1,7 @@
+.Toolbar {
+  display: flex;
+  justify-content: space-between;
+}
+.info-icon{
+    color: inherit !important;
+}
