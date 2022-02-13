@@ -27,6 +27,7 @@ export function EditDialog() {
   const dispatch = useDispatch();
   const DialogProps = useSelector((state: RootState) => state.editor.value);
   const [Text, setText] = React.useState('');
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   React.useEffect(()=>{setText(DialogProps.text)},[DialogProps.show])
   const CloseDialog: CloseFunctionType = () => {
     setText("");
