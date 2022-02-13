@@ -2,7 +2,8 @@ import { createTheme } from "@mui/material/styles";
 
 const theme = createTheme({
     palette:{
-        primary:{main:'#05B6D4',contrastText:'#fff'},
+        primary:{main:'#038096',contrastText:'#fff'},
+        //#05B6D4
     },
     breakpoints:{
 

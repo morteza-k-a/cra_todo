@@ -16,7 +16,7 @@ export function Appbar() {
     <Slide direction="down" timeout={500} in>
       <AppBar color={"primary"}>
         <Toolbar className={"Toolbar"}>
-          Todo
+         <b>Todo</b> 
           <Tooltip title={'App info'} arrow> 
             <IconButton
               className={"info-icon"}

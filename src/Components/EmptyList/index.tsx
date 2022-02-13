@@ -21,7 +21,7 @@ export function EmptyList() {
   return (
     <Root>
       <h3>Your tasks will be shown here!</h3>
-      <img src={"/todo.jpg"} alt={"Todo"} loading={"lazy"} />
+      <img src={"/todo.jpg"} alt={"Todo"} height={350} width={350} />
     </Root>
   );
 }
