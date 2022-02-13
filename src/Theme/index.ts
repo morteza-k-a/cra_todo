@@ -13,9 +13,6 @@ const theme = createTheme({
                 variant:'contained',
                 color:'primary'
             },
-            styleOverrides:{
-                
-            }
         }
     }
 })
