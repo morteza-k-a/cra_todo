@@ -1,9 +1,16 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore , combineReducers } from '@reduxjs/toolkit'
 import TodosReducer from './Slices/TodoSlice'
+import DialogReducer from './Slices/DialogSlice'
+import EditorReducer from './Slices/EditorDialogSlice'
 
+const MainReducer = combineReducers({
+  todos:TodosReducer,
+  Dialog:DialogReducer,
+  editor:EditorReducer
+})
 
 export const store = configureStore({
-  reducer: TodosReducer,
+  reducer: MainReducer,
 })
 
 

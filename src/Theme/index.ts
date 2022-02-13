@@ -4,6 +4,9 @@ const theme = createTheme({
     palette:{
         primary:{main:'#05B6D4',contrastText:'#fff'},
     },
+    breakpoints:{
+
+    },
     components:{
         MuiButton:{
             defaultProps:{

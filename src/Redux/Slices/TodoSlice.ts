@@ -1,41 +1,30 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface TodoItem {
-  text:string
-}
-
-export interface TodoState {
-  value: Array<TodoItem>;
-}
-
+import { TodoState, TodoItem } from "../../interfaces";
+import {ReadFromlocalStorage,SaveTolocalStorage} from '../../enhancers/localStorage'
 const initialState: TodoState = {
-  value: [
-      {text:'item 1'},
-      {text:'item 2'},
-  ],
+  value: ReadFromlocalStorage('todos') || [],
 };
 
 export const TodoSlice = createSlice({
   name: "Todos",
   initialState,
   reducers: {
-    increment: (state) => {
-      // Redux Toolkit allows us to write "mutating" logic in reducers. It
-      // doesn't actually mutate the state because it uses the Immer library,
-      // which detects changes to a "draft state" and produces a brand new
-      // immutable state based off those changes
-      console.log(state.value);
+    DeleteItem: (state, action: PayloadAction<string>) => {
+      const id = action.payload;
+const data = state.value.filter((item) => item.id !== id);
+      state.value = data;
+      SaveTolocalStorage('todos',state.value)
     },
-    decrement: (state) => {
-      console.log(state.value);
-    },
-    incrementByAmount: (state, action: PayloadAction<TodoItem>) => {
-      // console.log(state.value);
-      // console.log(action.payload);
-      state.value = state.value.concat(action.payload);
+    AddOrEditItem: (state, action: PayloadAction<TodoItem>) => {
+      const index = state.value.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (index === -1) state.value = state.value.concat(action.payload);
+      else state.value[index] = action.payload;
+      SaveTolocalStorage('todos',state.value)
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = TodoSlice.actions
-export default TodoSlice.reducer
+export const { DeleteItem, AddOrEditItem } = TodoSlice.actions;
+export default TodoSlice.reducer;

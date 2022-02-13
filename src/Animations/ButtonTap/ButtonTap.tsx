@@ -1,7 +1,7 @@
 import React, { ReactChild } from "react";
 import { motion } from "framer-motion";
 
-export function ButtonTap(props: {
+export default function ButtonTap(props: {
   children: ReactChild | ReactChild[];
   scale?: number;
 }) {
